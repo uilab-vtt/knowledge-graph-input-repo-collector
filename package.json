@@ -1,0 +1,31 @@
+{
+  "name": "knowledge-graph-input-repo-collector",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:uilab-vtt/knowledge-graph-input-repo-collector.git",
+  "author": "Jeongmin Byun <jmbyun91@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "collect": "./node_modules/.bin/gulp collect"
+  },
+  "dependencies": {
+    "git-dep": "git+https://github.com/jmbyun/git-dep.git#51b48ba",
+    "gulp": "^3.9.1"
+  },
+  "gitDep": {
+    "dependencies": {
+      "base-knowledge": {
+        "repository": "https://github.com/machinereading/vtt-swrc-2018.git",
+        "branch": "master"
+      },
+      "behavior": {
+        "repository": "https://github.com/hobincar/vtt-action-recognition-data.git",
+        "branch": "master"
+      },
+      "location": {
+        "repository": "https://github.com/siit-video-turing-test/2nd-year.git",
+        "branch": "master"
+      }
+    }
+  }
+}
