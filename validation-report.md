@@ -2,7 +2,7 @@
 
 This is an automatically generated validation report from *[knowledge-graph-input-repo-collector](https://github.com/uilab-vtt/knowledge-graph-input-repo-collector)* application. 
 
-Data was collected from the repositories and validated on the server at around Thu Dec 06 2018 22:14:39 GMT+0900 (Korean Standard Time).
+Data was collected from the repositories and validated on the server at around Thu Dec 06 2018 22:43:41 GMT+0900 (Korean Standard Time).
 
 ## Target Files
 

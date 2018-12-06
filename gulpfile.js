@@ -42,70 +42,56 @@ gulp.task('builder-setup-dependencies', ['builder-setup-env'], async () => {
 
 gulp.task('builder-setup', ['builder-setup-env', 'builder-setup-dependencies']);
 
-gulp.task('validate-repositories', ['validator-setup'], async () => {
-  try {
-    const validFileSources = {};
-    const errors = await Promise.all(sources.map(async source => {
-      const fileErrors = [];
-      for (const filename of filenames) {
-        const filePath = path.join('./repositories', source.id, 'data', `${filename}.jsonl`);
-        log(
-          '[validate-repositories]', 
-          `Validating "${filename}" of ${source.id}(${source.provider})...`,
-        );
-        try {
-          await validate(validatorPath, filePath);
+gulp.task('validate-repositories', ['validator-setup'], callback => {
+  const validFileSources = {};
+  Promise.all(sources.map(source => {
+    log(
+      '[validate-repositories]',
+      `Validate source ${source.id}.`,
+    );
+    return Promise.all(filenames.map(filename => {
+      const filePath = path.join(
+        './repositories', 
+        source.id, 
+        'data', 
+        `${filename}.jsonl`,
+      );
+      return validate(validatorPath, filePath)
+        .then(() => {
           if (validFileSources[filename] === undefined) {
             validFileSources[filename] = {};
           }
           validFileSources[filename][source.id] = filePath;
-        } catch (error) {
-          fileErrors.push({ filename, error });
-        }
-        log(
-          '[validate-repositories]', 
-          `Validation done: "${filename}" of ${source.id}(${source.provider}).`,
-        );
-      }
-      return fileErrors;
-    }));
-    const sourceErrors = errors.map((error, i) => ({
-      source: sources[i],
-      error,
-    }));
-    const reportContent = await report(filenames, sourceErrors);
-    try {
+          return null;
+        })
+        .catch(error => {
+          return { filename, error };
+        });
+    }))
+      .then(fileErrors => {
+        return fileErrors.filter(fe => fe !== null);
+      });
+  }))
+    .then(errors => {
+      log(
+        '[validate-repositories]',
+        `Finished all validation tasks.`,
+      );
+      return errors.map((error, i) => ({
+        source: sources[i],
+        error,
+      }));
+    })
+    .then(sourceErrors => report(filenames, sourceErrors))
+    .then(reportContent => {
       fs.writeFileSync(validationReportPath, reportContent);
       log(
         '[validate-repositories]',
         `Saved the validation report at "${validationReportPath}".`,
       );
-    } catch (err) {
-      log.error(
-        '[validate-repositories]',
-        'Failed to write the validation report.',
-      );
-    }
-    fs.writeFileSync(validationResultPath, JSON.stringify(validFileSources));
-
-    if (errors.filter(err => err.length > 0).length > 0) {
-      log(
-        '[validate-repositories]',
-        'Validation done with some errors.',
-      );
-    } else {
-      log(
-        '[validate-repositories]',
-        'Validation done with no errors.',
-      );
-    }
-  } catch (err) {
-    log.error(
-      '[validate-repositories]',
-      'Error occurred on validation process:',
-      err,
-    );
-  }
+      fs.writeFileSync(validationResultPath, JSON.stringify(validFileSources));
+      callback();
+    });
 });
 
 gulp.task('build-graphs', ['builder-setup'], async () => {
