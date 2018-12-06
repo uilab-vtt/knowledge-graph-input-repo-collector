@@ -28,13 +28,70 @@ module.exports = {
       throw Error(`Failed to run init_db.py on builder.`);
     }
   },
-  addData: async function addData(builderPath, dataPath) {
+  addData: function addData(builderPath, dataPath) {
+    return new Promise((resolve, reject) => {
+      const fd = fs.openSync(dataPath, 'r');
+      const process = spawn('./env/bin/python', ['add_data.py'], {
+        cwd: builderPath,
+        stdio: [fd, 'pipe', 'pipe'],
+      });
 
+      const stdout = [];
+      const stderr = [];
+      process.stdout.on('data', data => stdout.push(data.toString(encoding)));
+      process.stderr.on('data', data => stderr.push(data.toString(encoding)));
+
+      process.on('exit', code => {
+        fs.closeSync(fd);
+        const out = stdout.join('');
+        const err = stderr.join('');
+        if (code !== 0) {
+          reject(
+            `Builder failed with error:\n${out}\nand output:\n${err}`
+          );
+        } else {
+          if (err.trim() === '' && out.trim() === 'Done.') {
+            resolve();
+          } else {
+            reject(`Build failed:\n${err}`);
+          }
+        }
+      });
+    });
   },
   merge: async function merge(builderPath) {
-
+    try {
+      await run(
+        './env/bin/pip',
+        ['merge_items.py'],
+        { cwd: builderPath },
+      );
+    } catch (error) {
+      throw Error(`Failed to run init_db.py on builder.`);
+    }
   },
-  dump: async function dump(builderPath) {
+  dump: function dump(builderPath, dumpPath) {
+    return new Promise((resolve, reject) => {
+      const fd = fs.openSync(dumpPath, 'w');
+      const process = spawn('./env/bin/python', ['dump.py'], {
+        cwd: builderPath,
+        stdio: ['inherit', fd, 'pipe'],
+      });
 
+      const stderr = [];
+      process.stderr.on('data', data => stderr.push(data.toString(encoding)));
+
+      process.on('exit', code => {
+        fs.closeSync(fd);
+        const err = stderr.join('');
+        if (code !== 0) {
+          reject(
+            `Builder failed with error:\n${err}`
+          );
+        } else {
+          resolve(`Build done.\n${err}`);
+        }
+      });
+    });
   },
 }

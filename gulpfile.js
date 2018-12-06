@@ -10,11 +10,13 @@ const pythonSetup = require('./gulp/python-setup');
 const validate = require('./gulp/validate');
 const report = require('./gulp/validation-report');
 const graph = require('./gulp/build-graph');
+const run = require('./gulp/run');
 
 const validatorPath = './repositories/validator';
 const builderPath = './repositories/builder';
 const validationReportPath = './validation-report.md';
 const validationResultPath = './valid-files.json';
+const outputPath = './out';
 
 gulp.task('validator-setup-env', async () => {
   if (fs.existsSync(path.join(validatorPath, 'env'))) {
@@ -95,8 +97,33 @@ gulp.task('validate-repositories', ['validator-setup'], callback => {
 });
 
 gulp.task('build-graphs', ['builder-setup'], async () => {
-  await graph.reset(builderPath);
-  await graph.initialize(builderPath);
+  const validFileSources = JSON.parse(fs.readFileSync(validationResultPath));
+  for (const filename of filenames) {
+    const validFilePaths = validFileSources[filename];
+    log('[build-graphs]', `Building a graph for "${filename}".`);
+    try {
+      await graph.reset(builderPath);
+      await graph.initialize(builderPath);
+      for (const source of sources) {
+        const filePath = validFilePaths[source.id];
+        if (!filePath) {
+          continue;
+        }
+        log('[build-graphs]', `Adding data from ${source.id} to the graph.`);
+        await graph.addData(builderPath, filePath);
+      }
+      log('[build-graphs]', `Merging and dumping the graph.`);
+      const targetFilePath = path.join(outputPath, filename);
+      const targetDirPath = targetFilePath.slice(0, targetFilePath.lastIndexOf('/'));
+      await run('mkdir', ['-p', targetDirPath]);
+      await graph.merge(builderPath);
+      await graph.dump(builderPath, targetFilePath);
+      log('[build-graphs]', `Graph building done for "${filename}".`);
+    } catch (err) {
+      log.error('[build-graphs]', 'Error on building a graph.', err);
+    }
+  }
+  
 });
 
 gulp.task('git-collect', () => {

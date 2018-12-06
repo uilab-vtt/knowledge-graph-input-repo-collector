@@ -9,36 +9,32 @@ module.exports = function validate(validatorPath, dataPath) {
     if(!fs.existsSync(dataPath)) {
       reject('There is no file in the repository.');
     } 
-    fs.open(dataPath, 'r', (err, fd) => {
-      if (err) {
-        reject('Failed to read data file.');
-      }
-      const process = spawn('./env/bin/python', ['validate.py'], {
-        cwd: validatorPath,
-        stdio: [fd, 'pipe', 'pipe'],
-      });
+    const fd = fs.openSync(dataPath, 'r')
+    const process = spawn('./env/bin/python', ['validate.py'], {
+      cwd: validatorPath,
+      stdio: [fd, 'pipe', 'pipe'],
+    });
 
-      const stdout = [];
-      const stderr = [];
-      process.stdout.on('data', data => stdout.push(data.toString(encoding)));
-      process.stderr.on('data', data => stderr.push(data.toString(encoding)));
+    const stdout = [];
+    const stderr = [];
+    process.stdout.on('data', data => stdout.push(data.toString(encoding)));
+    process.stderr.on('data', data => stderr.push(data.toString(encoding)));
 
-      process.on('exit', code => {
-        fs.closeSync(fd);
-        const out = stdout.join('');
-        const err = stderr.join('');
-        if (code !== 0) {
-          reject(
-            `Validator failed with error:\n${out}\nand output:\n${err}`
-          );
+    process.on('exit', code => {
+      fs.closeSync(fd);
+      const out = stdout.join('');
+      const err = stderr.join('');
+      if (code !== 0) {
+        reject(
+          `Validator failed with error:\n${err}\nand output:\n${out}`
+        );
+      } else {
+        if (err.trim() === '' && out.trim() === 'Done.') {
+          resolve();
         } else {
-          if (err.trim() === '' && out.trim() === 'Done.') {
-            resolve();
-          } else {
-            reject(`Validation failed:\n${err}`);
-          }
+          reject(`Validation failed:\n${err}`);
         }
-      });
+      }
     });
   });
 };

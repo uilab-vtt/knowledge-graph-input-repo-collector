@@ -1,3 +1,6 @@
+# Graph output
+out/
+
 # Intermediate files for graph building
 valid-files.json
 
