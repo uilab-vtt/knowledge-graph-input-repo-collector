@@ -1,38 +1,50 @@
 [
   {
-    "id": "base-knowledge",
-    "provider": "KAIST 최기선",
-    "description": "(대본) 인물 멘션 참조 해결 및 인물 지식 추출",
-    "repository": "https://github.com/machinereading/vtt-swrc-2018-data-result.git"
+    "id": "object-character-relation",
+    "provider": "-",
+    "description": "객체/인물관계",
+    "repository": "https://github.com/Dong-JinKim/VTT_object_data.git"
   },
   {
-    "id": "behavior",
-    "provider": "KAIST 유창동",
+    "id": "tracking",
+    "provider": "-",
+    "description": "상황추적",
+    "repository": "https://github.com/VTTCAU/VTT_TRACKING_DATA.git"
+  },
+  {
+    "id": "action",
+    "provider": "-",
     "description": "행동인식",
     "repository": "https://github.com/hobincar/vtt-action-recognition-data.git"
   },
   {
-    "id": "location",
-    "provider": "KAIST 김준모",
-    "description": "장소인식",
-    "repository": "https://github.com/siit-video-turing-test/2nd-year.git"
-  },
-  {
-    "id": "verb-semantics",
-    "provider": "서울대 정민화",
-    "description": "동사의미정보",
-    "repository": "https://github.com/ish97/VTT.git"
+    "id": "emotion",
+    "provider": "-",
+    "description": "감정인식",
+    "repository": "https://github.com/JanghoonChoi/VTT_vid_emotion_data.git"
   },
   {
     "id": "sound",
-    "provider": "KAIST 유창동",
+    "provider": "-",
     "description": "소리인식",
     "repository": "https://github.com/cao-nv/vtt-sound-event-data.git"
   },
   {
-    "id": "object",
-    "provider": "KAIST 권인소",
-    "description": "객체인식",
-    "repository": "https://github.com/Dong-JinKim/DRCaptioning.git"
+    "id": "place",
+    "provider": "-",
+    "description": "장소인식",
+    "repository": "https://github.com/siit-video-turing-test/2nd-year-data.git"
+  },
+  {
+    "id": "character-knowledge",
+    "provider": "-",
+    "description": "인물지식추출",
+    "repository": "https://github.com/machinereading/vtt-swrc-2018-data-result.git"
+  },
+  {
+    "id": "knowlege-background",
+    "provider": "-",
+    "description": "세계지식",
+    "repository": "https://github.com/iacryl/vtt-triple-data-jsonl.git"
   }
 ]
