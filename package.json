@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "fetch": "./node_modules/.bin/gulp fetch",
-    "validate": "./node_modules/.bin/gulp validate"
+    "validate": "./node_modules/.bin/gulp validate",
+    "build": "./node_modules/.bin/gulp build"
   },
   "dependencies": {
     "ejs": "^2.6.1",

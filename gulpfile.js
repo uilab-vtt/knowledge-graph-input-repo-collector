@@ -4,15 +4,17 @@ const gitDep = require('git-dep');
 const path = require('path');
 const log = require('fancy-log');
 const spawn = require('child_process').spawn;
-const pythonSetup = require('./gulp/python-setup');
 const sources = require('./sources.json');
 const filenames = require('./source-filenames.json');
+const pythonSetup = require('./gulp/python-setup');
 const validate = require('./gulp/validate');
 const report = require('./gulp/validation-report');
+const graph = require('./gulp/build-graph');
 
 const validatorPath = './repositories/validator';
 const builderPath = './repositories/builder';
 const validationReportPath = './validation-report.md';
+const validationResultPath = './valid-files.json';
 
 gulp.task('validator-setup-env', async () => {
   if (fs.existsSync(path.join(validatorPath, 'env'))) {
@@ -42,6 +44,7 @@ gulp.task('builder-setup', ['builder-setup-env', 'builder-setup-dependencies']);
 
 gulp.task('validate-repositories', ['validator-setup'], async () => {
   try {
+    const validFileSources = {};
     const errors = await Promise.all(sources.map(async source => {
       const fileErrors = [];
       for (const filename of filenames) {
@@ -52,6 +55,10 @@ gulp.task('validate-repositories', ['validator-setup'], async () => {
         );
         try {
           await validate(validatorPath, filePath);
+          if (validFileSources[filename] === undefined) {
+            validFileSources[filename] = {};
+          }
+          validFileSources[filename][source.id] = filePath;
         } catch (error) {
           fileErrors.push({ filename, error });
         }
@@ -79,6 +86,7 @@ gulp.task('validate-repositories', ['validator-setup'], async () => {
         'Failed to write the validation report.',
       );
     }
+    fs.writeFileSync(validationResultPath, JSON.stringify(validFileSources));
 
     if (errors.filter(err => err.length > 0).length > 0) {
       log(
@@ -100,9 +108,15 @@ gulp.task('validate-repositories', ['validator-setup'], async () => {
   }
 });
 
+gulp.task('build-graphs', ['builder-setup'], async () => {
+  await graph.reset(builderPath);
+  await graph.initialize(builderPath);
+});
+
 gulp.task('git-collect', () => {
   return gitDep();
 });
 
 gulp.task('fetch', ['git-collect']);
 gulp.task('validate', ['validate-repositories']);
+gulp.task('build', ['build-graphs']);

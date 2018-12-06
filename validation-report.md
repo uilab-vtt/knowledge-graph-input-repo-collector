@@ -2,7 +2,7 @@
 
 This is an automatically generated validation report from *[knowledge-graph-input-repo-collector](https://github.com/uilab-vtt/knowledge-graph-input-repo-collector)* application. 
 
-Data was collected from the repositories and validated on the server at around Thu Dec 06 2018 21:48:23 GMT+0900 (Korean Standard Time).
+Data was collected from the repositories and validated on the server at around Thu Dec 06 2018 22:14:39 GMT+0900 (Korean Standard Time).
 
 ## Target Files
 
@@ -27,7 +27,7 @@ Here are the valiation results for the source repositories.
 
 ### object-character-relation (-, 객체/인물관계)
 
-Data was collected from the repository at [https://github.com/Dong-JinKim/VTT_object_data](https://github.com/Dong-JinKim/VTT_object_data) for this data source.
+Data was collected from the repository at [https://github.com/Dong-JinKim/VTT_object_data.git](https://github.com/Dong-JinKim/VTT_object_data.git) for this data source.
 
 
 
@@ -80,7 +80,7 @@ There is no file in the repository.
 
 ### tracking (-, 상황추적)
 
-Data was collected from the repository at [https://github.com/VTTCAU/VTT_TRACKING_DATA](https://github.com/VTTCAU/VTT_TRACKING_DATA) for this data source.
+Data was collected from the repository at [https://github.com/VTTCAU/VTT_TRACKING_DATA.git](https://github.com/VTTCAU/VTT_TRACKING_DATA.git) for this data source.
 
 
 
@@ -102,7 +102,7 @@ No error was found on the data files from this repository.
 
 ### emotion (-, 감정인식)
 
-Data was collected from the repository at [https://github.com/JanghoonChoi/VTT_vid_emotion_data](https://github.com/JanghoonChoi/VTT_vid_emotion_data) for this data source.
+Data was collected from the repository at [https://github.com/JanghoonChoi/VTT_vid_emotion_data.git](https://github.com/JanghoonChoi/VTT_vid_emotion_data.git) for this data source.
 
 
 
@@ -155,7 +155,7 @@ There is no file in the repository.
 
 ### sound (-, 소리인식)
 
-Data was collected from the repository at [https://github.com/cao-nv/vtt-sound-event-data](https://github.com/cao-nv/vtt-sound-event-data) for this data source.
+Data was collected from the repository at [https://github.com/cao-nv/vtt-sound-event-data.git](https://github.com/cao-nv/vtt-sound-event-data.git) for this data source.
 
 
 
@@ -166,7 +166,7 @@ No error was found on the data files from this repository.
 
 ### place (-, 장소인식)
 
-Data was collected from the repository at [https://github.com/siit-video-turing-test/2nd-year-data](https://github.com/siit-video-turing-test/2nd-year-data) for this data source.
+Data was collected from the repository at [https://github.com/siit-video-turing-test/2nd-year-data.git](https://github.com/siit-video-turing-test/2nd-year-data.git) for this data source.
 
 
 
@@ -177,7 +177,7 @@ No error was found on the data files from this repository.
 
 ### character-knowledge (-, 인물지식추출)
 
-Data was collected from the repository at [https://github.com/machinereading/vtt-swrc-2018-data-result](https://github.com/machinereading/vtt-swrc-2018-data-result) for this data source.
+Data was collected from the repository at [https://github.com/machinereading/vtt-swrc-2018-data-result.git](https://github.com/machinereading/vtt-swrc-2018-data-result.git) for this data source.
 
 
 
@@ -188,7 +188,7 @@ No error was found on the data files from this repository.
 
 ### knowlege-background (-, 세계지식)
 
-Data was collected from the repository at [https://github.com/iacryl/vtt-triple-data-jsonl](https://github.com/iacryl/vtt-triple-data-jsonl) for this data source.
+Data was collected from the repository at [https://github.com/iacryl/vtt-triple-data-jsonl.git](https://github.com/iacryl/vtt-triple-data-jsonl.git) for this data source.
 
 
 
