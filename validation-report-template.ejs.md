@@ -19,6 +19,8 @@ Here are the valiation results for the source repositories.
 <% sourceErrors.forEach(({ source, error }) => { %>
 ### <%= source.id %> (<%= source.provider %>, <%= source.description %>)
 
+Data was collected from the repository at [<%= source.repository %>](<%= source.repository %>) for this data source.
+
 <% if (error.length === 0) { %>
 
 No error was found on the data files from this repository.

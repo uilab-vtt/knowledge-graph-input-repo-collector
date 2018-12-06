@@ -3,7 +3,7 @@
     "id": "base-knowledge",
     "provider": "KAIST 최기선",
     "description": "(대본) 인물 멘션 참조 해결 및 인물 지식 추출",
-    "repository": "https://github.com/machinereading/vtt-swrc-2018.git"
+    "repository": "https://github.com/machinereading/vtt-swrc-2018-data-result.git"
   },
   {
     "id": "behavior",
