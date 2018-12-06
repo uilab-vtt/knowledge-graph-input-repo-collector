@@ -6,26 +6,13 @@
   "author": "Jeongmin Byun <jmbyun91@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "collect": "./node_modules/.bin/gulp collect"
+    "fetch": "./node_modules/.bin/gulp fetch",
+    "validate": "./node_modules/.bin/gulp validate"
   },
   "dependencies": {
-    "git-dep": "git+https://github.com/jmbyun/git-dep.git#51b48ba",
+    "ejs": "^2.6.1",
+    "fancy-log": "^1.3.3",
+    "git-dep": "git+https://github.com/jmbyun/git-dep.git#1.x.x",
     "gulp": "^3.9.1"
-  },
-  "gitDep": {
-    "dependencies": {
-      "base-knowledge": {
-        "repository": "https://github.com/machinereading/vtt-swrc-2018.git",
-        "branch": "master"
-      },
-      "behavior": {
-        "repository": "https://github.com/hobincar/vtt-action-recognition-data.git",
-        "branch": "master"
-      },
-      "location": {
-        "repository": "https://github.com/siit-video-turing-test/2nd-year.git",
-        "branch": "master"
-      }
-    }
   }
 }
