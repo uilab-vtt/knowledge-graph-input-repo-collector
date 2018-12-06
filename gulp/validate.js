@@ -7,7 +7,7 @@ const encoding = 'utf8';
 module.exports = function validate(validatorPath, dataPath) {
   return new Promise((resolve, reject) => {
     if(!fs.existsSync(dataPath)) {
-      reject('Data file not found.');
+      reject('There is no file in the repository.');
     } 
     fs.open(dataPath, 'r', (err, fd) => {
       if (err) {
@@ -24,6 +24,7 @@ module.exports = function validate(validatorPath, dataPath) {
       process.stderr.on('data', data => stderr.push(data.toString(encoding)));
 
       process.on('exit', code => {
+        fs.closeSync(fd);
         const out = stdout.join('');
         const err = stderr.join('');
         if (code !== 0) {

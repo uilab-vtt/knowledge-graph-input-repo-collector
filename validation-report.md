@@ -2,7 +2,7 @@
 
 This is an automatically generated validation report from *[knowledge-graph-input-repo-collector](https://github.com/uilab-vtt/knowledge-graph-input-repo-collector)* application. 
 
-Data was collected from the repositories and validated on the server at around Thu Dec 06 2018 16:42:52 GMT+0900 (KST).
+Data was collected from the repositories and validated on the server at around Thu Dec 06 2018 17:05:19 GMT+0900 (KST).
 
 ## Target Files
 
@@ -36,7 +36,7 @@ Following errors are found from the data files in the repository.
 #### friends/friends_s01_e01
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -44,7 +44,7 @@ Data file not found.
 #### friends/friends_s01_e02
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -52,7 +52,7 @@ Data file not found.
 #### friends/friends_s01_e03
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -60,7 +60,7 @@ Data file not found.
 #### friends/friends_s01_e04
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -68,7 +68,7 @@ Data file not found.
 #### friends/friends_s01_e05
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -96,7 +96,7 @@ Following errors are found from the data files in the repository.
 #### friends/friends_s01_e01
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -104,7 +104,7 @@ Data file not found.
 #### friends/friends_s01_e02
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -112,7 +112,7 @@ Data file not found.
 #### friends/friends_s01_e03
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -120,7 +120,7 @@ Data file not found.
 #### friends/friends_s01_e04
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -128,7 +128,7 @@ Data file not found.
 #### friends/friends_s01_e05
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -147,7 +147,7 @@ Following errors are found from the data files in the repository.
 #### friends/friends_s01_e01
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -155,7 +155,7 @@ Data file not found.
 #### friends/friends_s01_e02
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -163,7 +163,7 @@ Data file not found.
 #### friends/friends_s01_e03
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -171,7 +171,7 @@ Data file not found.
 #### friends/friends_s01_e04
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -179,7 +179,7 @@ Data file not found.
 #### friends/friends_s01_e05
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -187,7 +187,7 @@ Data file not found.
 
 
 
-### base-knowledge (KAIST 유창동, 소리인식)
+### sound (KAIST 유창동, 소리인식)
 
 
 
@@ -198,7 +198,7 @@ Following errors are found from the data files in the repository.
 #### friends/friends_s01_e01
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -206,7 +206,7 @@ Data file not found.
 #### friends/friends_s01_e02
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -214,7 +214,7 @@ Data file not found.
 #### friends/friends_s01_e03
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -222,7 +222,7 @@ Data file not found.
 #### friends/friends_s01_e04
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -230,7 +230,7 @@ Data file not found.
 #### friends/friends_s01_e05
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -249,7 +249,7 @@ Following errors are found from the data files in the repository.
 #### friends/friends_s01_e01
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -257,7 +257,7 @@ Data file not found.
 #### friends/friends_s01_e02
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -265,7 +265,7 @@ Data file not found.
 #### friends/friends_s01_e03
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -273,7 +273,7 @@ Data file not found.
 #### friends/friends_s01_e04
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 
@@ -281,7 +281,7 @@ Data file not found.
 #### friends/friends_s01_e05
 
 ```
-Data file not found.
+There is no file in the repository.
 ```
 
 

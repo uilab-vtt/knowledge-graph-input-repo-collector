@@ -24,7 +24,7 @@
     "repository": "https://github.com/ish97/VTT.git"
   },
   {
-    "id": "base-knowledge",
+    "id": "sound",
     "provider": "KAIST 유창동",
     "description": "소리인식",
     "repository": "https://github.com/cao-nv/vtt-sound-event-data.git"
